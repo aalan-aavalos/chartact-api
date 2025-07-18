@@ -1,0 +1,93 @@
+{
+  "model_name": "Modelo MBTI Julio Prueba 1",
+  "created_at": "20250717_210754",
+  "description": "Prueba con dimensiones E y S",
+  "dimensions": [
+    "E",
+    "S"
+  ],
+  "categories": [
+    "Analista",
+    "Diplomático",
+    "Centinela",
+    "Explorador"
+  ],
+  "num_samples": 41,
+  "label_distribution": {
+    "Centinela": 24,
+    "Diplomático": 9,
+    "Explorador": 8
+  },
+  "age_ranges": [
+    "17 - 20",
+    "21 - 25",
+    "31 - 35",
+    "36 - 40"
+  ],
+  "genders": [
+    "F",
+    "M"
+  ],
+  "columns_used": [
+    "name",
+    "gender",
+    "age_range",
+    "E",
+    "S",
+    "mbti_label"
+  ],
+  "training_type": "clustering",
+  "training_results": {
+    "accuracy": 1.0,
+    "classification_report": {
+      "Centinela": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 24.0
+      },
+      "Diplomático": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 9.0
+      },
+      "Explorador": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 8.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 41.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 41.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        24,
+        0,
+        0
+      ],
+      [
+        0,
+        9,
+        0
+      ],
+      [
+        0,
+        0,
+        8
+      ]
+    ]
+  }
+}

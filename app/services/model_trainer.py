@@ -1,5 +1,12 @@
 import pandas as pd
 from sklearn.cluster import KMeans
+import os
+import json
+import joblib
+from datetime import datetime
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
+import numpy as np
 
 # Diccionario con mapeo de preguntas a dimensiones
 DIM_MAP = {
@@ -112,12 +119,14 @@ def map_mbti_to_category(code: str) -> str:
     else:
         return "Desconocido"
 
+
 IDEAL_CENTROIDS = {
     "Analista": {"N": 10, "T": 10},
     "Diplomático": {"N": 10, "F": 10},
     "Centinela": {"S": 10, "J": 10},
     "Explorador": {"S": 10, "P": 10},
 }
+
 
 def assign_by_distance(df: pd.DataFrame, dimensions: list[str], categories: list[str]) -> pd.DataFrame:
     def closest_label(row):
@@ -145,3 +154,70 @@ def assign_by_distance(df: pd.DataFrame, dimensions: list[str], categories: list
     df["mbti_label"] = df.apply(closest_label, axis=1)
     return df
 
+
+def train_and_store_model(
+    df, dimensions, model_name, description, mbti_categories, training_type="clustering", file_info=None
+):
+    from sklearn.preprocessing import LabelEncoder
+
+    X = df[dimensions]
+    y = df["mbti_label"]
+
+    le = LabelEncoder()
+    y_encoded = le.fit_transform(y)
+
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model.fit(X, y_encoded)
+
+    y_pred = model.predict(X)
+
+    # Precisión general
+    accuracy = accuracy_score(y_encoded, y_pred)
+
+    # Reporte detallado
+    report_dict = classification_report(
+        y_encoded, y_pred,
+        target_names=le.classes_,
+        output_dict=True
+    )
+
+    # Matriz de confusión
+    conf_matrix = confusion_matrix(y_encoded, y_pred).tolist()
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    dir_name = f"models_store/{model_name.replace(' ', '_')}_{timestamp}"
+    os.makedirs(dir_name, exist_ok=True)
+
+    # Guardar modelo
+    joblib.dump({
+        "model": model,
+        "label_encoder": le,
+        "dimensions": dimensions
+    }, f"{dir_name}/model.pkl")
+
+    # Guardar metadatos
+    metadata = {
+        "model_name": model_name,
+        "created_at": timestamp,
+        "description": description,
+        "dimensions": dimensions,
+        "categories": mbti_categories,
+        "num_samples": len(df),
+        "label_distribution": df["mbti_label"].value_counts().to_dict(),
+        "age_ranges": sorted(df["age_range"].unique().tolist()),
+        "genders": sorted(df["gender"].unique().tolist()),
+        "columns_used": df.columns.tolist(),
+        "training_type": training_type,
+        "training_results": {
+            "accuracy": round(accuracy, 4),
+            "classification_report": report_dict,
+            "confusion_matrix": conf_matrix
+        },
+    }
+
+    if file_info:
+        # por si le pasas {"file_source_name": ..., etc.}
+        metadata.update(file_info)
+
+    with open(f"{dir_name}/metadata.json", "w", encoding="utf-8") as f:
+        json.dump(metadata, f, indent=2, ensure_ascii=False)
