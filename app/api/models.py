@@ -65,8 +65,13 @@ async def create_classical_model(
     df = await process_csv(file)
 
     # 2. Calcular SIEMPRE las 8 dimensiones (como pure_mbti)
-    all_dims = ["E", "I", "S", "N", "T", "F", "J", "P"]
-    prepared_df = prepare_dataframe(df, all_dims)
+    all_needed_dims = set(dimensions_list)
+    for dim in dimensions_list:
+        all_needed_dims.add(get_opposite(dim))
+    all_needed_dims = list(all_needed_dims)
+    
+    prepared_df = prepare_dataframe(df, all_needed_dims)
+
 
     # 3. Asignar código MBTI y categoría
     prepared_df["mbti_code"] = prepared_df.apply(assign_mbti_code, axis=1)
@@ -75,7 +80,7 @@ async def create_classical_model(
     # 4. Reasignar si hay menos de 4 categorías
     if len(mbti_categories_list) < 4:
         from app.services.model_trainer import assign_by_distance
-        prepared_df = assign_by_distance(prepared_df, all_dims, mbti_categories_list)
+        prepared_df = assign_by_distance(prepared_df, all_needed_dims, mbti_categories_list)
 
     # 5. Filtrar por categorías solicitadas
     prepared_df = prepared_df[prepared_df["mbti_label"].isin(mbti_categories_list)]
