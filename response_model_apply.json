@@ -1,0 +1,348 @@
+{
+    "model_id": "d427e60c-a79a-4514-9069-f708cd8d9a13",
+    "model_name": "Modelo MBTI Julio Prueba 1",
+    "dimensions": [
+        "E",
+        "S"
+    ],
+    "clusters_used": [
+        "Centinela",
+        "Diplomático",
+        "Explorador"
+    ],
+    "label_distribution": {
+        "Centinela": 24,
+        "Diplomático": 9,
+        "Explorador": 8
+    },
+    "data": [
+        {
+            "name": "Alan",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 7,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Dalia",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 9,
+            "S": 8,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Erick",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 8,
+            "S": 7,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Jesus",
+            "gender": "M",
+            "age_range": "21 - 25",
+            "E": 10,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Ariana",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 9,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Adrian",
+            "gender": "M",
+            "age_range": "21 - 25",
+            "E": 13,
+            "S": 8,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Nair",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 13,
+            "S": 10,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Stephania",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 8,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Arely",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 9,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Cris",
+            "gender": "F",
+            "age_range": "21 - 25",
+            "E": 13,
+            "S": 9,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Bibiana",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 6,
+            "S": 8,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Evelyn",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 7,
+            "S": 7,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Luis",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 14,
+            "S": 9,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Aylin",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 10,
+            "S": 8,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Yuri",
+            "gender": "M",
+            "age_range": "21 - 25",
+            "E": 12,
+            "S": 9,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Javier",
+            "gender": "M",
+            "age_range": "21 - 25",
+            "E": 9,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Leslie",
+            "gender": "F",
+            "age_range": "21 - 25",
+            "E": 9,
+            "S": 9,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Mayra",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 12,
+            "S": 8,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Oscar",
+            "gender": "M",
+            "age_range": "21 - 25",
+            "E": 7,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Yamileth",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 12,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Karol",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 7,
+            "S": 4,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Margarita",
+            "gender": "F",
+            "age_range": "31 - 35",
+            "E": 9,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Cielo",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 8,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Alejandra",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 4,
+            "S": 10,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Mina",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 7,
+            "S": 7,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Karime",
+            "gender": "F",
+            "age_range": "21 - 25",
+            "E": 8,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Valeria",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 11,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Brittany",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 15,
+            "S": 7,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Fernando",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 11,
+            "S": 10,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Ariana",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 4,
+            "S": 9,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Sara",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 10,
+            "S": 9,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Edgar",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 4,
+            "S": 6,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Citlally",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 6,
+            "S": 9,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Luis",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 15,
+            "S": 10,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Juana",
+            "gender": "F",
+            "age_range": "31 - 35",
+            "E": 12,
+            "S": 10,
+            "mbti_label": "Diplomático"
+        },
+        {
+            "name": "Alma",
+            "gender": "F",
+            "age_range": "31 - 35",
+            "E": 9,
+            "S": 6,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Miguel",
+            "gender": "M",
+            "age_range": "36 - 40",
+            "E": 13,
+            "S": 2,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Karina",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 8,
+            "S": 8,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Said",
+            "gender": "M",
+            "age_range": "17 - 20",
+            "E": 3,
+            "S": 2,
+            "mbti_label": "Explorador"
+        },
+        {
+            "name": "Sandra",
+            "gender": "F",
+            "age_range": "36 - 40",
+            "E": 8,
+            "S": 5,
+            "mbti_label": "Centinela"
+        },
+        {
+            "name": "Itzel",
+            "gender": "F",
+            "age_range": "17 - 20",
+            "E": 10,
+            "S": 10,
+            "mbti_label": "Centinela"
+        }
+    ]
+}

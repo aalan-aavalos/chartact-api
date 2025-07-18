@@ -1,3 +1,4 @@
+import uuid
 import pandas as pd
 from sklearn.cluster import KMeans
 import os
@@ -184,8 +185,13 @@ def train_and_store_model(
     # Matriz de confusión
     conf_matrix = confusion_matrix(y_encoded, y_pred).tolist()
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    dir_name = f"models_store/{model_name.replace(' ', '_')}_{timestamp}"
+    # Generar ID único y timestamp
+    model_id = str(uuid.uuid4())
+    timestamp = datetime.now().isoformat()
+
+    # Crear nombre de carpeta: modelo_nombre + _ + model_id
+    safe_name = model_name.replace(" ", "_")
+    dir_name = f"models_store/{safe_name}_{model_id}"
     os.makedirs(dir_name, exist_ok=True)
 
     # Guardar modelo
@@ -197,6 +203,7 @@ def train_and_store_model(
 
     # Guardar metadatos
     metadata = {
+        "model_id": model_id,
         "model_name": model_name,
         "created_at": timestamp,
         "description": description,
@@ -213,10 +220,10 @@ def train_and_store_model(
             "classification_report": report_dict,
             "confusion_matrix": conf_matrix
         },
+        "labels": le.classes_.tolist(),
     }
 
     if file_info:
-        # por si le pasas {"file_source_name": ..., etc.}
         metadata.update(file_info)
 
     with open(f"{dir_name}/metadata.json", "w", encoding="utf-8") as f:

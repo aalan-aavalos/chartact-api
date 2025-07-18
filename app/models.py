@@ -24,3 +24,12 @@ class CreateModelResponse(BaseModel):
     clusters_used: List[str]            # Ej: ["Analista", "Centinela"]
     label_distribution: Dict[str, int]  # Ej: {"Analista": 20, "Centinela": 30}
     data: List[Dict]                    # Cada fila como dict (nombre, genero, dimensiones, etiqueta)
+
+
+class CreateModelUseResponse(BaseModel):
+    model_id: str  
+    model_name: str
+    dimensions: List[str]
+    clusters_used: List[str]            # Ej: ["Analista", "Centinela"]
+    label_distribution: Dict[str, int]  # Ej: {"Analista": 20, "Centinela": 30}
+    data: List[Dict]                    # Cada fila como dict (nombre, genero, dimensiones, etiqueta)

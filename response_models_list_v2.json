@@ -1,0 +1,228 @@
+{
+    "models": [
+        {
+            "model_id": "e712cc79-f992-4ee9-a0bc-6b6ab06b7859",
+            "model_name": "Modelo MBTI Julio Prueba 2",
+            "created_at": "2025-07-17T21:46:25.470009",
+            "description": "Prueba con dimensiones E, S, T y J",
+            "dimensions": [
+                "E",
+                "S",
+                "T",
+                "J"
+            ],
+            "categories": [
+                "Analista",
+                "Diplomático",
+                "Centinela",
+                "Explorador"
+            ],
+            "num_samples": 41,
+            "label_distribution": {
+                "Centinela": 21,
+                "Explorador": 15,
+                "Analista": 4,
+                "Diplomático": 1
+            },
+            "age_ranges": [
+                "17 - 20",
+                "21 - 25",
+                "31 - 35",
+                "36 - 40"
+            ],
+            "genders": [
+                "F",
+                "M"
+            ],
+            "columns_used": [
+                "name",
+                "gender",
+                "age_range",
+                "F",
+                "N",
+                "E",
+                "I",
+                "J",
+                "P",
+                "T",
+                "S",
+                "mbti_code",
+                "mbti_label"
+            ],
+            "training_type": "classical",
+            "training_results": {
+                "accuracy": 1.0,
+                "classification_report": {
+                    "Analista": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 4.0
+                    },
+                    "Centinela": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 21.0
+                    },
+                    "Diplomático": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 1.0
+                    },
+                    "Explorador": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 15.0
+                    },
+                    "accuracy": 1.0,
+                    "macro avg": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 41.0
+                    },
+                    "weighted avg": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 41.0
+                    }
+                },
+                "confusion_matrix": [
+                    [
+                        4,
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        21,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        0,
+                        15
+                    ]
+                ]
+            },
+            "labels": [
+                "Analista",
+                "Centinela",
+                "Diplomático",
+                "Explorador"
+            ]
+        },
+        {
+            "model_id": "98c759cc-8bae-44cb-8f6e-f04a81158c82",
+            "model_name": "Modelo MBTI Julio Prueba 1",
+            "created_at": "2025-07-17T21:46:11.143326",
+            "description": "Prueba con dimensiones E y S",
+            "dimensions": [
+                "E",
+                "S"
+            ],
+            "categories": [
+                "Analista",
+                "Diplomático",
+                "Centinela",
+                "Explorador"
+            ],
+            "num_samples": 41,
+            "label_distribution": {
+                "Centinela": 24,
+                "Diplomático": 9,
+                "Explorador": 8
+            },
+            "age_ranges": [
+                "17 - 20",
+                "21 - 25",
+                "31 - 35",
+                "36 - 40"
+            ],
+            "genders": [
+                "F",
+                "M"
+            ],
+            "columns_used": [
+                "name",
+                "gender",
+                "age_range",
+                "E",
+                "S",
+                "mbti_label"
+            ],
+            "training_type": "clustering",
+            "training_results": {
+                "accuracy": 1.0,
+                "classification_report": {
+                    "Centinela": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 24.0
+                    },
+                    "Diplomático": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 9.0
+                    },
+                    "Explorador": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 8.0
+                    },
+                    "accuracy": 1.0,
+                    "macro avg": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 41.0
+                    },
+                    "weighted avg": {
+                        "precision": 1.0,
+                        "recall": 1.0,
+                        "f1-score": 1.0,
+                        "support": 41.0
+                    }
+                },
+                "confusion_matrix": [
+                    [
+                        24,
+                        0,
+                        0
+                    ],
+                    [
+                        0,
+                        9,
+                        0
+                    ],
+                    [
+                        0,
+                        0,
+                        8
+                    ]
+                ]
+            },
+            "labels": [
+                "Centinela",
+                "Diplomático",
+                "Explorador"
+            ]
+        }
+    ]
+}
