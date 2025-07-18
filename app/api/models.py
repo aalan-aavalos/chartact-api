@@ -54,40 +54,41 @@ async def create_model(
 async def create_classical_model(
     file: UploadFile = File(...),
     model_name: str = Form(...),
-    dimensions: str = Form(...),      # JSON string: ["E", "S", "T", "J"]
-    mbti_categories: str = Form(...), # JSON string: ["Analista", "Centinela", …]
+    dimensions: str = Form(...),      # Ej: ["E", "S", "T", "J"]
+    mbti_categories: str = Form(...), # Ej: ["Analista", "Centinela"]
     description: str = Form(None)
 ):
+    import json
+    from app.services.model_trainer import get_opposite, assign_by_distance
+
     dimensions_list = json.loads(dimensions)
     mbti_categories_list = json.loads(mbti_categories)
 
-    # 1. Procesar CSV
+    # 1. Leer CSV original
     df = await process_csv(file)
 
-    # 2. Calcular SIEMPRE las 8 dimensiones (como pure_mbti)
+    # 2. Calcular dimensiones + sus opuestos
     all_needed_dims = set(dimensions_list)
-    for dim in dimensions_list:
-        all_needed_dims.add(get_opposite(dim))
+    all_needed_dims.update(get_opposite(d) for d in dimensions_list)
     all_needed_dims = list(all_needed_dims)
-    
+
+    # 3. Prepara DataFrame con esas dimensiones
     prepared_df = prepare_dataframe(df, all_needed_dims)
 
-
-    # 3. Asignar código MBTI y categoría
+    # 4. Asignar código MBTI
     prepared_df["mbti_code"] = prepared_df.apply(assign_mbti_code, axis=1)
+
+    # 5. Mapear a categoría MBTI clásica (pueden salir las 4)
     prepared_df["mbti_label"] = prepared_df["mbti_code"].apply(map_mbti_to_category)
 
-    # 4. Reasignar si hay menos de 4 categorías
-    if len(mbti_categories_list) < 4:
-        from app.services.model_trainer import assign_by_distance
-        prepared_df = assign_by_distance(prepared_df, all_needed_dims, mbti_categories_list)
+    # 6. Reasignar etiquetas según cercanía si el usuario no mandó las 4 categorías
+    if set(prepared_df["mbti_label"].unique()) - set(mbti_categories_list):
+        prepared_df = assign_by_distance(prepared_df, list(dimensions_list), mbti_categories_list)
 
-    # 5. Filtrar por categorías solicitadas
-    prepared_df = prepared_df[prepared_df["mbti_label"].isin(mbti_categories_list)]
-
-    # 6. Distribución
+    # 7. Obtener distribución
     label_distribution = prepared_df["mbti_label"].value_counts().to_dict()
 
+    # 8. Retornar resultado
     return CreateModelResponse(
         model_name=model_name,
         dimensions=dimensions_list,
